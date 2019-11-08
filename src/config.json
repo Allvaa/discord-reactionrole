@@ -1,11 +1,11 @@
 {
-    "token": "NDk1ODAzNzUzNzY5NzMwMDY4.XcWcLw.kCpuHA1O2nmJw68qotDehn9NkGk",
+    "token": "bot token.",
     "reactions": {
-        "642413224800550932": {
-            "channelID": "504074689182957569",
-            "messageID": "642413224800550932",
-            "emojiID": "523751512720015361",
-            "roleToAddID": "626827334493929473"
+        "the channel id that the message was there": {
+            "channelID": "the channel id that the message was there",
+            "messageID": "the message id",
+            "emojiID": "id emoji that will be used",
+            "roleToAddID": "the role to add and remove"
         }
     }
 }
