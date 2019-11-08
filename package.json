@@ -1,10 +1,13 @@
 {
   "name": "discord-reactionrole",
   "version": "0.1.0",
-  "description": "Just a Reaction Role bot in Discord",
-  "main": "index.js",
+  "description": "Just a simple Reaction Role bot for your Discord server",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "start": "npm run lint && echo [INFO] Error not found continued process.. && node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +31,8 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js"
   }
 }

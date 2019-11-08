@@ -1,2 +1,2 @@
 # discord-reactionrole
-Just a Reaction Role bot in Discord
+Just a simple Reaction Role bot for your Discord server
