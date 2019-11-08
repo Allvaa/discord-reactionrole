@@ -1,0 +1,32 @@
+{
+  "name": "discord-reactionrole",
+  "version": "0.1.0",
+  "description": "Just a Reaction Role bot in Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allvaa/reaction-role.git"
+  },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "reaction-role",
+    "role",
+    "discord-bot",
+    "bot"
+  ],
+  "author": "Allvaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Allvaadiscord-reactionrole/issues"
+  },
+  "homepage": "https://github.com/Allvaa/discord-reactionrole#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
