@@ -1,11 +1,14 @@
 {
-    "token": "bot token.",
+    "token": "bot token",
     "reactions": {
-        "the channel id that the message was there": {
-            "channelID": "the channel id that the message was there",
-            "messageID": "the message id",
-            "emojiID": "id emoji that will be used",
-            "roleToAddID": "the role to add and remove"
+        "message id": {
+            "channelID": "the channel id that the message was",
+            "messageID": "message id",
+            "emojis": {
+                "the emoji id / name": "role id to given",
+                "the emoji id / name 2": "role id to given",
+                "👀": "626827334493929473"
+            }
         }
     }
 }
