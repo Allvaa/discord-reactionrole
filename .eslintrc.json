@@ -26,6 +26,7 @@
         ],
         "no-console": "off",
         "max-len": "off",
-        "eol-last": "off"
+        "eol-last": "off",
+        "linebreak-style": "off"
     }
 }
