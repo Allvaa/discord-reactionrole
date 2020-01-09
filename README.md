@@ -1,2 +1,2 @@
-# discord-reactionrole
+# discord-reactionrole [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://allvzx.glitch.me)
 simple "auto self-assign roles" bot. that based on message reactions to work
