@@ -1,2 +1,2 @@
 # discord-reactionrole
-Just a simple Reaction Role bot for your Discord server
+simple "auto self-assign roles" bot. that based on message reactions to work
