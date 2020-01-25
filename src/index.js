@@ -36,8 +36,8 @@ class ReactionRoleClient extends Client {
         if (!data || !emoji) return undefined;
         const member = message.guild.member(user);
 
-        if (type === "add") member.roles.add(emoji);
-        if (type === "remove") member.roles.remove(emoji);
+        if (type.toLowerCase() === "add") member.roles.add(emoji);
+        if (type.toLowerCase() === "remove") member.roles.remove(emoji);
 
         return undefined;
     }
