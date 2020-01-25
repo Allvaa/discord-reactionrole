@@ -1,8 +1,17 @@
 const { Client } = require("discord.js");
 
+/**
+ * @class ReactionRoleClient
+ * @extends {Client}
+ */
 class ReactionRoleClient extends Client {
-    constructor(...args) {
-        super(...args);
+    /**
+     * Creates an instance of ReactionRoleClient.
+     * @param {import("discord.js").ClientOptions} [options]
+     * @memberof ReactionRoleClient
+     */
+    constructor(options) {
+        super(options);
         this.config = require("./config.json"); // eslint-disable-line
 
         this.on("ready", () => {
@@ -27,6 +36,13 @@ class ReactionRoleClient extends Client {
         this.login(this.config.token);
     }
 
+    /**
+     * @param {import("discord.js").MessageReaction} messageReaction
+     * @param {import("discord.js").User} user
+     * @param {String} type
+     * @returns {void} Void
+     * @memberof ReactionRoleClient
+     */
     handleRole(messageReaction, user, type) {
         if (!type || !["add", "remove"].includes(type.toLowerCase())) return undefined;
         const { message } = messageReaction;
