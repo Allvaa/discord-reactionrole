@@ -61,5 +61,4 @@ typings/
 .next
 
 # Other
-src/config.json
 src/data.json
