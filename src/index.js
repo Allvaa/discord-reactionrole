@@ -27,11 +27,11 @@ class ReactionRoleClient extends Client {
                 }
             }
         });
-        this.on("messageReactionAdd", (messageReaction, user) => {
-            this.handleRole(messageReaction, user, "add");
+        this.on("messageReactionAdd", async (messageReaction, user) => {
+            await this.handleRole(messageReaction, user, "add");
         });
-        this.on("messageReactionRemove", (messageReaction, user) => {
-            this.handleRole(messageReaction, user, "remove");
+        this.on("messageReactionRemove", async (messageReaction, user) => {
+            await this.handleRole(messageReaction, user, "remove");
         });
 
         this.login(this.config.token);
@@ -41,21 +41,22 @@ class ReactionRoleClient extends Client {
      * @param {import("discord.js").MessageReaction} messageReaction
      * @param {import("discord.js").User} user
      * @param {String} type
-     * @returns {void} Void
+     * @returns {Promise<void>}
      * @memberof ReactionRoleClient
      */
-    handleRole(messageReaction, user, type) {
+    async handleRole(messageReaction, user, type) {
         if (!type || !["add", "remove"].includes(type.toLowerCase())) return undefined;
+        if (messageReaction.me) return undefined;
         const { message } = messageReaction;
         const data = this.data[message.id];
-        const emoji = data.emojis[messageReaction._emoji.id || messageReaction._emoji.name]; // eslint-disable-line
-        if (messageReaction.me) return undefined;
-        if (!data || !emoji) return undefined;
-        const member = message.guild.member(user);
+        if (data) {
+            const emoji = data.emojis[messageReaction._emoji.id || messageReaction._emoji.name]; // eslint-disable-line
+            if (!emoji) return undefined;
+            const member = message.guild.member(user);
 
-        if (type.toLowerCase() === "add") member.roles.add(emoji);
-        if (type.toLowerCase() === "remove") member.roles.remove(emoji);
-
+            if (type.toLowerCase() === "add") await member.roles.add(emoji);
+            if (type.toLowerCase() === "remove") await member.roles.remove(emoji);
+        }
         return undefined;
     }
 }
