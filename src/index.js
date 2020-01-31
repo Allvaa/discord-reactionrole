@@ -13,13 +13,14 @@ class ReactionRoleClient extends Client {
     constructor(options) {
         super(options);
         this.config = require("./config.json"); // eslint-disable-line
+        this.data = require("./data.json"); // eslint-disable-line
 
-        this.on("ready", () => {
+        this.on("ready", async () => {
             console.log(`[INFO] Logged in as ${this.user.tag}.`);
             // eslint-disable-next-line no-restricted-syntax
-            for (const data of Object.values(this.config.reactions)) {
+            for (const data of Object.values(this.data)) {
                 try {
-                    this.channels.get(data.channelID).messages.fetch(data.messageID);
+                    await this.channels.get(data.channelID).messages.fetch(data.messageID); // eslint-disable-line
                     console.log(`[INFO] ${data.messageID} fetched.`);
                 } catch (e) {
                     console.log(`[ERR] Error when fetching ${data.messageID}, because ${e.message}.`);
@@ -46,7 +47,7 @@ class ReactionRoleClient extends Client {
     handleRole(messageReaction, user, type) {
         if (!type || !["add", "remove"].includes(type.toLowerCase())) return undefined;
         const { message } = messageReaction;
-        const data = this.config.reactions[message.id];
+        const data = this.data[message.id];
         const emoji = data.emojis[messageReaction._emoji.id || messageReaction._emoji.name]; // eslint-disable-line
         if (messageReaction.me) return undefined;
         if (!data || !emoji) return undefined;
